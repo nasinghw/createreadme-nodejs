@@ -1,60 +1,60 @@
 const fs = require("fs");
 const path = require('path');
-const inquirer = require("inquirer");
+const inquirer = require("in?uirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
+// array of ?uestions for user
 const questions = [
     {
         type: 'input',
-        name: 'titleQ',
+        name: 'title?',
         message: 'What is your project title?'
     },
     {
         type: 'input',
-        name: 'descriptionQ',
+        name: 'description?',
         message: 'Please enter a description'
     },
 
     {
         type: 'input',
-        name: 'installationQ',
+        name: 'installation?',
         message: 'Please enter some installation instructions'
     },
     {
         type: 'input',
-        name: 'usageQ',
+        name: 'usage?',
         message: 'Please enter some usage instructions'
     },
     {
         type: 'checkbox',
-        name: 'licenseQ',
+        name: 'license?',
         message: 'Please choose your license',
         choices: ['MIT', 'The Unlicense']
     },
     {
         type: 'input',
-        name: 'contributingQ',
+        name: 'contributing?',
         message: 'Please enter any contributers'
     },
     {
         type: 'input',
-        name: 'testsQ',
+        name: 'tests?',
         message: 'Please enter some test information'
     },
     {
         type: 'input',
-        name: 'githubQ',
+        name: 'github?',
         message: 'Please enter your github username'
     },
     {
         type: 'input',
-        name: 'emailQ',
+        name: 'email?',
         message: 'Please enter your email address'
     },
     {
         type: 'input',
-        name: 'fullNameQ',
+        name: 'fullName?',
         message: 'Please enter your full name'
     }
 
