@@ -72,7 +72,7 @@ function init() {
         inquirer
         .prompt(questions)
         .then((answers) => {
-            const { title, description, installation, usageQ, license, contributing, test, github, email, fullname } = answers
+            const { title, description, installation, usage, license, contributing, test, github, email, fullname } = answers
             let licenseBadge;
             let licenseContent;
             switch (license[0]) {
