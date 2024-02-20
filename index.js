@@ -75,7 +75,7 @@ function init() {
             const { title, description, installation, usageQ, license, contributing, test, github, email, fullname } = answers
             let licenseBadge;
             let licenseContent;
-            switch (licenseQ[0]) {
+            switch (license[0]) {
                 case "MIT":
                     licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
                     licenseContent = `
