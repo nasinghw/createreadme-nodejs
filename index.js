@@ -54,7 +54,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'fullName',
+        name: 'fullname',
         message: 'Finally your full name'
     }
 
@@ -72,7 +72,7 @@ function init() {
         inquirer
         .prompt(questions)
         .then((answers) => {
-            const { title, description, installation, usageQ, license, contributing, test, github, email, fullName } = answers
+            const { title, description, installation, usageQ, license, contributing, test, github, email, fullname } = answers
             let licenseBadge;
             let licenseContent;
             switch (licenseQ[0]) {
@@ -82,8 +82,8 @@ function init() {
             
                     MIT License
 
-                    Copyright (c) [year] [fullName]
-                    Copyright (c) 2024 ${fullName}
+                    Copyright (c) [year] [fullname]
+                    Copyright (c) 2024 ${fullname}
 
                         Permission is hereby granted, free of charge, to any person obtaining a copy
                         of this software and associated documentation files (the "Software"), to deal
@@ -110,6 +110,8 @@ function init() {
                 Apache License
                 Version 2.0, January 2004
             http://www.apache.org/licenses/
+
+            Copyright (c) 2024 ${fullname}
 
                         TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
  
@@ -267,13 +269,13 @@ function init() {
                 break;
 
             }
-            const potentialFile = `${licenseBadge}
+            const potentialFile = `${licenseBadge}`
 
 
 
         })
 
     };
-
+}
 // function call to initialize program
 init();
