@@ -79,11 +79,11 @@ function init() {
                 case "MIT":
                     licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
                     licenseContent = `
-                    MIT License
+            MIT License
 
-                    Copyright (c) 2024 ${fullNameQ}
+                    Copyright (c) 2024 ${fullName}
                     
-                    Copyright (c) [year] [fullname]
+                    Copyright (c) [year] [fullName]
 
                         Permission is hereby granted, free of charge, to any person obtaining a copy
                         of this software and associated documentation files (the "Software"), to deal
