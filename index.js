@@ -3,7 +3,7 @@ const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of ?uestions for user
+// array of questions for user
 const questions = [
     {
         type: 'input',
@@ -13,7 +13,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please give project description'
+        message: 'Please provide project description'
     },
 
     {
@@ -269,7 +269,18 @@ function init() {
                 break;
 
             }
-            const potentialFile = `${licenseBadge}`
+            const potentialFile = `${licenseBadge}
+            
+            # ${title}
+
+            ## Description:
+
+            ${description}
+
+            ## Table of contents:
+
+                -[Description](#description)
+            `
 
 
 
