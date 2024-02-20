@@ -7,54 +7,54 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
     {
         type: 'input',
-        name: 'title?',
+        name: 'title',
         message: 'What is title of your project?'
     },
     {
         type: 'input',
-        name: 'description?',
+        name: 'description',
         message: 'Please give project description'
     },
 
     {
         type: 'input',
-        name: 'installation?',
+        name: 'installation',
         message: 'Please provide user instructions for installation'
     },
     {
         type: 'input',
-        name: 'usage?',
+        name: 'usage',
         message: 'Please provide usage instructions'
     },
     {
         type: 'checkbox',
-        name: 'license?',
+        name: 'license',
         message: 'Choose license',
         choices: ['MIT','Apache 2.0', 'Unlicense' ]
     },
     {
         type: 'input',
-        name: 'contributing?',
+        name: 'contributing',
         message: 'Please enter all contributers'
     },
     {
         type: 'input',
-        name: 'tests?',
+        name: 'test',
         message: 'Please provide test information'
     },
     {
         type: 'input',
-        name: 'github?',
+        name: 'github',
         message: 'Please provide your github account'
     },
     {
         type: 'input',
-        name: 'email?',
+        name: 'email',
         message: 'Please provide your email address'
     },
     {
         type: 'input',
-        name: 'fullName?',
+        name: 'fullName',
         message: 'Finally your full name'
     }
 
@@ -68,8 +68,18 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-
-}
+    function init() {
+        inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const { title, description, installation, usageQ, license, contributing, test, github, email, fullName } = answers
+            let licenseBadge;
+            let licenseContent;
+            switch (licenseQ[0]) {
+                case "MIT":
+                    licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+                    licenseContent = `
+}}};
 
 // function call to initialize program
 init();
