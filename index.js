@@ -34,8 +34,8 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributing',
-        message: 'Please enter all contributers'
+        name: 'contribution',
+        message: 'Please enter all contributors'
     },
     {
         type: 'input',
@@ -72,7 +72,7 @@ function init() {
         inquirer
         .prompt(questions)
         .then((answers) => {
-            const { title, description, installation, usage, license, contributing, test, github, email, fullname } = answers
+            const { title, description, installation, usage, license, contribution, test, github, email, fullname } = answers
             let licenseBadge;
             let licenseContent;
             switch (license[0]) {
@@ -280,8 +280,47 @@ function init() {
             ## Table of contents:
 
                 -[Description](#description)
-            `
 
+                - [Installation](#installation-instructions)
+
+                - [Usage](#usage-instructions)
+
+                - [License](#license)
+
+                - [Contribution](#contribution)
+
+                - [Tests](#tests)
+
+                - [Questions](#questions)
+
+                ## Installation Instructions:
+
+                ${installation}
+
+                ## Usage Instructions:
+
+                ${usage}
+
+                ## License:
+
+                ${licenseContent}
+
+                ## Contribution:
+
+                ${contribution}
+
+                ## Tests:
+
+                ${test}
+
+                ## Questions:
+
+                Please sent your questions to email.
+
+                - [Email](mailto:${email})
+
+            `
+            writeToFile("READMEEXAMPLE.md", potentialFile)
 
 
         })
