@@ -30,38 +30,40 @@ const questions = [
         type: 'checkbox',
         name: 'license?',
         message: 'Choose license',
-        choices: ['MIT', 'Unlicensed']
+        choices: ['MIT','Apache 2.0', 'Unlicense' ]
     },
     {
         type: 'input',
         name: 'contributing?',
-        message: 'Please enter any contributers'
+        message: 'Please enter all contributers'
     },
     {
         type: 'input',
         name: 'tests?',
-        message: 'Please enter some test information'
+        message: 'Please provide test information'
     },
     {
         type: 'input',
         name: 'github?',
-        message: 'Please enter your github username'
+        message: 'Please provide your github account'
     },
     {
         type: 'input',
         name: 'email?',
-        message: 'Please enter your email address'
+        message: 'Please provide your email address'
     },
     {
         type: 'input',
         name: 'fullName?',
-        message: 'Please enter your full name'
+        message: 'Finally your full name'
     }
 
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.log(err) : console.log('Success!'))
 }
 
 // function to initialize program
