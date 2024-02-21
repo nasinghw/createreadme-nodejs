@@ -265,7 +265,7 @@ function init() {
                 break;
 
         }
-        const myreadmefile = `${licenseBadge}\n\n\n${title}\n\n\n## Description:${description}\n\n\n## Table of contents:\n\n-[Description](#description)\n- [Installation](#installation-instructions)\n- [Usage](#usage-instructions)\n- [License](#license)\n- [Contribution](#contribution)\n- [Tests](#tests)\n- [Questions](#questions)\n\n\n## Installation Instructions:\n\n\n${installation}\n\n\n## Usage Instructions:\n\n\n${usage}\n\n\n## License:\n\n\n${licenseContent}\n\n\n## Contribution:\n\n\n${contribution}\n\n\n## Tests:\n\n\n${test}\n\n\n## Questions:\n\n\nPlease sent your questions to email.\n\n- [Email](mailto:${email})\n\n\n`
+        const myreadmefile = `${licenseBadge}\n\n\n${mytitle}\n\n\n## Description:${mydesc}\n\n\n## Table of contents:\n\n-[Description](#description)\n- [Installation](#installation-instructions)\n- [Usage](#usage-instructions)\n- [License](#license)\n- [Contribution](#contribution)\n- [Tests](#tests)\n- [Questions](#questions)\n\n\n## Installation Instructions:\n\n\n${myinstall}\n\n\n## Usage Instructions:\n\n\n${usage}\n\n\n## License:\n\n\n${mylicense}\n\n\n## Contribution:\n\n\n${mycontribution}\n\n\n## Tests:\n\n\n${mytest}\n\n\n## Questions:\n\n\nPlease sent your questions to email.\n\n- [Email](mailto:${myemail})\n\n\n`
         console.log(myreadmefile)
         writeToFile("READMEEXAMPLE.md", myreadmefile)
     })
