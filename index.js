@@ -1,9 +1,17 @@
+//README Generator
+
+// Read a file in Node.js
 const fs = require("fs");
+
+//requirejs() to load path data 
 const path = require('path');
+
+//requirejs() to load inquirer data 
 const inquirer = require("inquirer");
+
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// array of questions for user
+// Create array of questions
 const questions = [
     {
         type: 'input',
@@ -64,7 +72,6 @@ function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
     err ? console.log(err) : console.log('Success!'))
 }
-
 
 // function to initialize program
 function init() {
