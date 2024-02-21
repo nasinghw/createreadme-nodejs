@@ -52,11 +52,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'mygithub',
-        message: 'Please provide your github account name'
-    },
-    {
-        type: 'input',
         name: 'myemail',
         message: 'Please provide your email address'
     },
@@ -79,7 +74,7 @@ function init() {
     .prompt(questions)
     .then((answers) => {
         console.log(answers)
-        const { mytitle, mydesc, myinstall, usage, mylicense, mycontribution, mytest, mygithub, myemail, fullname } = answers
+        const { mytitle, mydesc, myinstall, usage, mylicense, mycontribution, mytest, myemail, fullname } = answers
         let licenseBadge;
         let licenseContent;
         switch (mylicense[0]) {
