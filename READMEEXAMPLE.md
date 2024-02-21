@@ -27,7 +27,7 @@ README install
 ## Usage Instructions:
 
 
-README usage
+README usage instructions
 
 
 ## License:
@@ -45,7 +45,7 @@ README contributors
 ## Tests:
 
 
-README test
+README tests
 
 
 ## Questions:
