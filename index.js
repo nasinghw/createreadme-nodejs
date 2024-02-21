@@ -7,18 +7,18 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
     {
         type: 'input',
-        name: 'title',
+        name: 'mytitle',
         message: 'What is title of your project?'
     },
     {
         type: 'input',
-        name: 'description',
+        name: 'mydesc',
         message: 'Please provide project description'
     },
 
     {
         type: 'input',
-        name: 'installation',
+        name: 'myinstall',
         message: 'Please provide user instructions for installation'
     },
     {
@@ -28,36 +28,35 @@ const questions = [
     },
     {
         type: 'checkbox',
-        name: 'license',
-        message: 'Choose license',
-        choices: ['MIT','Apache 2.0', 'Unlicense' ]
+        name: 'mylicense',
+        message: 'Please select your license',
+        choices: ['MIT', 'Apache 2.0', 'Unlicense']
     },
     {
         type: 'input',
-        name: 'contribution',
+        name: 'mycontribution',
         message: 'Please enter all contributors'
     },
     {
         type: 'input',
-        name: 'test',
+        name: 'mytest',
         message: 'Please provide test information'
     },
     {
         type: 'input',
-        name: 'github',
-        message: 'Please provide your github account'
+        name: 'mygithub',
+        message: 'Please provide your github account name'
     },
     {
         type: 'input',
-        name: 'email',
+        name: 'myemail',
         message: 'Please provide your email address'
     },
     {
         type: 'input',
         name: 'fullname',
-        message: 'Finally your full name'
+        message: 'Please enter your full name'
     }
-
 ];
 
 // function to write README file
@@ -66,45 +65,43 @@ function writeToFile(fileName, data) {
     err ? console.log(err) : console.log('Success!'))
 }
 
+
 // function to initialize program
 function init() {
-    function init() {
-        inquirer
-        .prompt(questions)
-        .then((answers) => {
-            const { title, description, installation, usage, license, contribution, test, github, email, fullname } = answers
-            let licenseBadge;
-            let licenseContent;
-            switch (license[0]) {
-                case "MIT":
-                    licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-                    licenseContent = `
-            
-                    MIT License
+    inquirer
+    .prompt(questions)
+    .then((answers) => {
+        console.log(answers)
+        const { mytitle, mydesc, myinstall, usage, mylicense, mycontribution, mytest, mygithub, myemail, fullname } = answers
+        let licenseBadge;
+        let licenseContent;
+        switch (mylicense[0]) {
+            case "MIT":
+                licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+                licenseContent = `
+                MIT License
 
-                    Copyright (c) [year] [fullname]
-                    Copyright (c) 2024 ${fullname}
-
-                        Permission is hereby granted, free of charge, to any person obtaining a copy
-                        of this software and associated documentation files (the "Software"), to deal
-                        in the Software without restriction, including without limitation the rights
-                        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                        copies of the Software, and to permit persons to whom the Software is
-                        furnished to do so, subject to the following conditions:
-
-                        The above copyright notice and this permission notice shall be included in all
-                        copies or substantial portions of the Software.
-
-                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                        SOFTWARE.`
-            break;
-
-            case "Apache 2.0":
+                Copyright (c) 2024 ${fullname}
+                
+                Permission is hereby granted, free of charge, to any person obtaining a copy
+                of this software and associated documentation files (the "Software"), to deal
+                in the Software without restriction, including without limitation the rights
+                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                copies of the Software, and to permit persons to whom the Software is
+                furnished to do so, subject to the following conditions:
+                
+                The above copyright notice and this permission notice shall be included in all
+                copies or substantial portions of the Software.
+                
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                SOFTWARE.`
+                break;
+                case "Apache 2.0":
                 licenseBadge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
                 licenseContent = `
                 Apache License
@@ -238,94 +235,44 @@ function init() {
 
                         END OF TERMS AND CONDITIONS`
                 break;
-
-            case "The Unlicense":
+            case "Unlicense":
                 licenseBadge = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`;
                 licenseContent = `
-                        This is free and unencumbered software released into the public domain.
+                This is free and unencumbered software released into the public domain.
 
-                        Anyone is free to copy, modify, publish, use, compile, sell, or
-                        distribute this software, either in source code form or as a compiled
-                        binary, for any purpose, commercial or non-commercial, and by any
-                        means.
-
-                        In jurisdictions that recognize copyright laws, the author or authors
-                        of this software dedicate any and all copyright interest in the
-                        software to the public domain. We make this dedication for the benefit
-                        of the public at large and to the detriment of our heirs and
-                        successors. We intend this dedication to be an overt act of
-                        relinquishment in perpetuity of all present and future rights to this
-                        software under copyright law.
-
-                        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-                        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-                        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-                        IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-                        OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-                        ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-                        OTHER DEALINGS IN THE SOFTWARE.
-                                        
-                        For more information, please refer to <https://unlicense.org>`
+                Anyone is free to copy, modify, publish, use, compile, sell, or
+                distribute this software, either in source code form or as a compiled
+                binary, for any purpose, commercial or non-commercial, and by any
+                means.
+                
+                In jurisdictions that recognize copyright laws, the author or authors
+                of this software dedicate any and all copyright interest in the
+                software to the public domain. We make this dedication for the benefit
+                of the public at large and to the detriment of our heirs and
+                successors. We intend this dedication to be an overt act of
+                relinquishment in perpetuity of all present and future rights to this
+                software under copyright law.
+                
+                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+                EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+                MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+                IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+                OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+                ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+                OTHER DEALINGS IN THE SOFTWARE.
+                
+                For more information, please refer to <https://unlicense.org>`
                 break;
 
-            }
-            const potentialFile = `${licenseBadge}
-            
-            # ${title}
+        }
+        const myreadmefile = `${licenseBadge}\n\n\n${title}\n\n\n## Description:${description}\n\n\n## Table of contents:\n\n-[Description](#description)\n- [Installation](#installation-instructions)\n- [Usage](#usage-instructions)\n- [License](#license)\n- [Contribution](#contribution)\n- [Tests](#tests)\n- [Questions](#questions)\n\n\n## Installation Instructions:\n\n\n${installation}\n\n\n## Usage Instructions:\n\n\n${usage}\n\n\n## License:\n\n\n${licenseContent}\n\n\n## Contribution:\n\n\n${contribution}\n\n\n## Tests:\n\n\n${test}\n\n\n## Questions:\n\n\nPlease sent your questions to email.\n\n- [Email](mailto:${email})\n\n\n`
+        console.log(myreadmefile)
+        writeToFile("READMEEXAMPLE.md", myreadmefile)
+    })
 
-            ## Description:
-
-            ${description}
-
-            ## Table of contents:
-
-                -[Description](#description)
-
-                - [Installation](#installation-instructions)
-
-                - [Usage](#usage-instructions)
-
-                - [License](#license)
-
-                - [Contribution](#contribution)
-
-                - [Tests](#tests)
-
-                - [Questions](#questions)
-
-                ## Installation Instructions:
-
-                ${installation}
-
-                ## Usage Instructions:
-
-                ${usage}
-
-                ## License:
-
-                ${licenseContent}
-
-                ## Contribution:
-
-                ${contribution}
-
-                ## Tests:
-
-                ${test}
-
-                ## Questions:
-
-                Please sent your questions to email.
-
-                - [Email](mailto:${email})
-
-            `
-            writeToFile("READMEEXAMPLE.md", potentialFile)
+};
 
 
-        })
 
-    };
-}
 // function call to initialize program
 init();
